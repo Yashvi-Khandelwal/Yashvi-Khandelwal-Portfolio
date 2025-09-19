@@ -1,0 +1,62 @@
+.contact-form-container {
+    display: flex;
+    padding: 2rem;
+    min-height: 500px;
+    gap: 2rem;
+    position: absolute;
+    justify-content: space-evenly;
+    /* padding-top: 5rem;
+    padding-bottom: 5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem; */
+    /* padding: auto 1445rem; */
+    padding: 5rem;
+
+}
+
+.contact-form-container h2 {
+    text-align: center;
+    display: inline-block;
+}
+
+.contact-form-content {
+    border: 2px solid rebeccapurple;
+    width: 40%;
+    padding: 1.3rem;
+    text-align: justify;
+}
+
+.contact-form {
+    width: 500px;
+    border-radius: 1rem;
+    padding: 1rem;
+    border: 2px solid salmon;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 2rem 0 2rem 0;
+}
+
+button{
+    background-color: #ff2e88;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out; /* smooth hover effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover{
+ 
+    box-shadow: 
+        0 8px 16px rgba(0,0,0,0.2),   /* main shadow */
+        0 4px 6px rgba(0,0,0,0.15);  
+}

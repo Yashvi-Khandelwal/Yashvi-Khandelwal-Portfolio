@@ -1,0 +1,105 @@
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80vh;
+    width: 100%;
+    padding: 4rem 2rem;
+    margin: 0 auto;
+}
+
+.about-image {
+    border: 2px solid red;
+    width: 25rem;
+    height: 25rem;
+    border-radius: 50%;
+    background-image: url("../images/Yashvi-Khandelwal.jpg");
+    background-size: cover;
+}
+
+.about-content{
+    padding: 1.5rem;
+    text-align: justify;
+}
+
+.about-content-container {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.about-heading{
+    align-self: center;
+    text-decoration: underline;
+    font-size: 3rem;
+    color:#ff2e88;
+}
+
+.about-content p{
+    font-size: 1.1rem;
+    line-height: 1.6rem;
+    text-align: justify;
+}
+
+.about-social {
+  display: flex;
+  gap: 1.5rem;         
+  margin-top: 1.5rem;
+  align-self: center;
+  font-size: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .about-container {
+    padding: 3rem 1.5rem;
+  }
+
+  .about-image {
+    width: 18rem;
+    height: 18rem;
+  }
+
+  .about-heading {
+    font-size: 2.5rem;
+  }
+
+  .about-content p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .about-container {
+    flex-direction: column;
+    height: auto;  /* content ke hisaab se adjust ho */
+    padding: 2rem 1rem;
+  }
+
+  .about-image {
+    width: 12rem;
+    height: 12rem;
+    margin-bottom: 2rem; /* content se gap */
+  }
+
+  .about-content-container {
+    width: 100%;
+    align-items: center;  /* heading aur content center align */
+    text-align: center;
+  }
+
+  .about-heading {
+    font-size: 2rem;
+  }
+
+  .about-content p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .about-social {
+    justify-content: center;
+  }
+}
+
+

@@ -1,0 +1,105 @@
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem 0;
+}
+
+.timeline::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  background: #4f46e5;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  width: 18px;
+  height: 18px;
+  background: #4f46e5;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item.left::before {
+  right: -9px;
+}
+
+.timeline-item.right {
+  left: 50%;
+}
+
+.timeline-item.right::before {
+  left: -9px;
+}
+
+.timeline-content {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-content h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: yellow;
+}
+
+.timeline-content h4 {
+  margin: 0.2rem 0;
+  font-size: 1rem;
+  color: palevioletred;
+}
+
+.timeline-content span {
+  font-size: 0.85rem;
+  color: burlywood;
+}
+
+.timeline-content p {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: blueviolet;
+}
+
+/* 📱 Responsive Design */
+@media screen and (max-width: 768px) {
+  .timeline::after {
+    left: 20px;
+  }
+  .timeline-item {
+    width: 100%;
+    padding-left: 3rem;
+    padding-right: 1rem;
+    text-align: left !important;
+  }
+  .timeline-item.left,
+  .timeline-item.right {
+    left: 0;
+  }
+  .timeline-item.left::before,
+  .timeline-item.right::before {
+    left: 12px;
+  }
+}
