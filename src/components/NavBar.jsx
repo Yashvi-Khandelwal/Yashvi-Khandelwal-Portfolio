@@ -1,37 +1,67 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 
-import './NavBar.css'
+// import './NavBar.css'
+
+// export const NavBar = () => {
+//     const [isOpen, setIsOpen] = useState(false);
+
+//     const toggleMenu = () => setIsOpen(!isOpen);
+//     const handleLinkClick = () => {
+//         setIsOpen(false);
+//     };
+//     return (
+//         <>
+//             <nav className="navBar">
+//                 <div className="nav_logo">Yashvi's Portfolio</div>
+//                 <div className="nav_items">
+//                     <ul className='items'>
+//                         <li><a href="" onClick={handleLinkClick}>Home</a></li>
+//                         <li><a href="" onClick={handleLinkClick}>About</a></li>
+//                         <li><a href="" onClick={handleLinkClick}>Experience</a></li>
+//                         <li><a href="" onClick={handleLinkClick}>Skills</a></li>
+//                         <li><a href="" onClick={handleLinkClick}>Projects</a></li>
+//                         <li><a href="" onClick={handleLinkClick}>Contact Me</a></li>
+//                     </ul>
+//                 </div>
+
+//               <div className={`hamburger ${isOpen ? "open" : ""}`} onClick={toggleMenu}>
+//         <span></span>
+//         <span></span>
+//         <span></span>
+//       </div>
+
+
+//             </nav>
+//         </>
+//     )
+// }
+
+import { useState } from "react";
+import "./NavBar.css";
 
 export const NavBar = () => {
-    const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-    const toggleMenu = () => setIsOpen(!isOpen);
-    const handleLinkClick = () => {
-        setIsOpen(false);
-    };
-    return (
-        <>
-            <nav className="navBar">
-                <div className="nav_logo">Yashvi's Portfolio</div>
-                <div className="nav_items">
-                    <ul className='items'>
-                        <li><a href="" onClick={handleLinkClick}>Home</a></li>
-                        <li><a href="" onClick={handleLinkClick}>About</a></li>
-                        <li><a href="" onClick={handleLinkClick}>Experience</a></li>
-                        <li><a href="" onClick={handleLinkClick}>Skills</a></li>
-                        <li><a href="" onClick={handleLinkClick}>Projects</a></li>
-                        <li><a href="" onClick={handleLinkClick}>Contact Me</a></li>
-                    </ul>
-                </div>
+  const toggleMenu = () => setIsOpen(!isOpen);
+  const handleLinkClick = () => setIsOpen(false);
 
-              <div className={`hamburger ${isOpen ? "open" : ""}`} onClick={toggleMenu}>
+  return (
+    <nav className="navBar">
+      <div className="nav_logo">Yashvi's Portfolio</div>
+      <div className={`nav_items ${isOpen ? "open" : ""}`}>
+        <ul className="items">
+          <li><a href="#home" onClick={handleLinkClick}>Home</a></li>
+          <li><a href="#about" onClick={handleLinkClick}>About</a></li>
+          <li><a href="#experience" onClick={handleLinkClick}>Experience</a></li>
+          <li><a href="#contact" onClick={handleLinkClick}>Contact</a></li>
+        </ul>
+      </div>
+
+      <div className={`hamburger ${isOpen ? "open" : ""}`} onClick={toggleMenu}>
         <span></span>
         <span></span>
         <span></span>
       </div>
-
-
-            </nav>
-        </>
-    )
-}
+    </nav>
+  );
+};

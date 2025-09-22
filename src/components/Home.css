@@ -1,53 +1,99 @@
 .home-section {
-    display: flex;
-    height: 100vh;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    /* gap: 3rem; */
-    justify-content: space-around;
-    padding: 0 10%;
-    /* border: 2px solid red; */
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 5%;
+  gap: 2rem;
 }
 
-.image {
-    height: 80vh;
-    width: 30vw;
-    border: 2px solid green;
-    border-radius: 2rem;
-    background-image: url("../images/Yashvi-Khandelwal.jpg");
-    background-size: contain;
+.hero-section {
+  text-align: center;
+  max-width: 90%; 
 }
 
 .fullName {
-    font-size: 3rem;
+  font-size: 2rem; 
+  margin: 0;
+}
+
+.highlight {
+  color: #ff2e88;
 }
 
 .short-intro {
-    font-size: 1.1rem;
-    max-width: 35rem;
-}
-
-.resume {
-    display: flex;
-    justify-content: center;
-    margin: 1rem;
+  font-size: 1rem;
+  max-width: 100%;
+  margin: 1rem 0;
+  line-height: 1.6;
 }
 
 .resume button {
-    cursor: pointer;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    padding: 0.5rem;
-    background-color: #ff2e88;
-    border-radius: 0.8rem;
-    max-width: 15rem;
+  cursor: pointer;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  padding: 0.6rem 1.2rem;
+  background-color: #ff2e88;
+  color: #fff;
+  border: none;
+  border-radius: 0.8rem;
+  transition: transform 0.2s, background-color 0.2s;
 }
 
-
 .resume button:hover {
-  background: #0056b3;        
-  /* transform: translateY(-2px);   */
-    transform: scale(1.05);       /* 5% bada */
+  background-color: #e01e6b;
+  transform: scale(1.05);
+}
 
+.image {
+  width: 80%;          
+  max-width: 40rem;     
+  aspect-ratio: 3/4;   
+  border-radius: 1.5rem;
+  background-image: url("../images/Yashvi-Khandelwal.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: 2rem;
+}
+
+@media (min-width: 769px) {
+  .home-section {
+    flex-direction: row; 
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .hero-section {
+    text-align: left;
+    max-width: 600px;
+  }
+
+  .fullName {
+    font-size: 2.5rem;
+  }
+
+  .short-intro {
+    font-size: 1.1rem;
+    max-width: 35rem;
+  }
+
+  .image {
+    width: 35vw;        
+    max-width: 40rem;
+    aspect-ratio: 3/4;  
+    margin-top: 0;
+
+  }
+}
+
+@media (min-width: 1025px) {
+  .fullName {
+    font-size: 3rem;
+  }
+   .image {
+    width: 30vw;       
+    max-width: 40rem;
+  }
 }

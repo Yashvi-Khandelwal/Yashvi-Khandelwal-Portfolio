@@ -9,3 +9,7 @@
       background-color: rgb(11, 13, 16);
       color: #dbe3ea;
 }
+
+html {
+  scroll-behavior: smooth;
+}

@@ -37,10 +37,10 @@ nav ul li {
 }
 
 
-.hamburger {
-  display: none;
+/* .hamburger {
+  display: none; */
   /* default me hidden (desktop ke liye) */
-  flex-direction: column;
+  /* flex-direction: column;
   gap: 6px;
   cursor: pointer;
 }
@@ -50,7 +50,7 @@ nav ul li {
   height: 3px;
   background: white;
   border-radius: 5px;
-}
+} */
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -75,8 +75,8 @@ nav ul li {
     align-items: center;
     gap: 2rem;
   }
-
+/* 
   .hamburger {
     display: flex;
-  }
+  } */
 }

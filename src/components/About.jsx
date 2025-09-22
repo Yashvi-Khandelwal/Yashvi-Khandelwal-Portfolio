@@ -23,9 +23,11 @@ export const About = () => {
 
     return (
         <div className="about-container">
-            <div className="about-image">
+
+               <div className="about-image">
 
             </div>
+            
             <div className="about-content-container">
                 <h1 className='about-heading'>About Me</h1>
                 <div className="about-content">
@@ -56,6 +58,8 @@ export const About = () => {
                     }
                 </div>
             </div>
+
+         
         </div>
     )
 }

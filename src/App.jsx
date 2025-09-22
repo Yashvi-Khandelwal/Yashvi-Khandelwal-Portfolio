@@ -1,22 +1,19 @@
-import { useState } from 'react'
 import { NavBar } from './components/NavBar'
 import { Home } from './components/Home'
 import { About } from './components/About'
-import Timeline from './components/Experience'
-import experiences from './data/experience'
+// import experiences from './data/experience'
 import { ContactForm } from './components/ContactForm'
-import { Contact } from './components/Contact'
+// import Timeline from "./components/Experience";
 
 function App() {
 
   return (
     <>
-      <NavBar></NavBar>
-      <Home></Home>
-      <About></About>
-     <Timeline experiences={experiences} />
-     <ContactForm></ContactForm>
-     {/* <Contact></Contact> */}
+      <NavBar />
+      <section id="home"><Home /></section>
+      <section id="about"><About /></section>
+      {/* <section id="experience"><Timeline /></section> */}
+      <section id="contact"><ContactForm /></section>
     </>
   )
 }
