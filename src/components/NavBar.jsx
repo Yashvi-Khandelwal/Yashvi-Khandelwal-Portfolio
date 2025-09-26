@@ -1,67 +1,37 @@
-// import { useState } from 'react'
-
-// import './NavBar.css'
-
-// export const NavBar = () => {
-//     const [isOpen, setIsOpen] = useState(false);
-
-//     const toggleMenu = () => setIsOpen(!isOpen);
-//     const handleLinkClick = () => {
-//         setIsOpen(false);
-//     };
-//     return (
-//         <>
-//             <nav className="navBar">
-//                 <div className="nav_logo">Yashvi's Portfolio</div>
-//                 <div className="nav_items">
-//                     <ul className='items'>
-//                         <li><a href="" onClick={handleLinkClick}>Home</a></li>
-//                         <li><a href="" onClick={handleLinkClick}>About</a></li>
-//                         <li><a href="" onClick={handleLinkClick}>Experience</a></li>
-//                         <li><a href="" onClick={handleLinkClick}>Skills</a></li>
-//                         <li><a href="" onClick={handleLinkClick}>Projects</a></li>
-//                         <li><a href="" onClick={handleLinkClick}>Contact Me</a></li>
-//                     </ul>
-//                 </div>
-
-//               <div className={`hamburger ${isOpen ? "open" : ""}`} onClick={toggleMenu}>
-//         <span></span>
-//         <span></span>
-//         <span></span>
-//       </div>
-
-
-//             </nav>
-//         </>
-//     )
-// }
-
-import { useState } from "react";
+import { useState } from 'react';
 import "./NavBar.css";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { AiOutlineClose } from "react-icons/ai";
 
 export const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
-  const handleLinkClick = () => setIsOpen(false);
+  const toggleDrawer = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <nav className="navBar">
       <div className="nav_logo">Yashvi's Portfolio</div>
+
+      <div
+        className="hamburger"
+        onClick={toggleDrawer}
+        aria-label={isOpen ? "Close menu" : "Open menu"}
+      >
+        {isOpen ? <AiOutlineClose size={30} /> : <GiHamburgerMenu size={30} />}
+      </div>
+
       <div className={`nav_items ${isOpen ? "open" : ""}`}>
         <ul className="items">
-          <li><a href="#home" onClick={handleLinkClick}>Home</a></li>
-          <li><a href="#about" onClick={handleLinkClick}>About</a></li>
-          <li><a href="#experience" onClick={handleLinkClick}>Experience</a></li>
-          <li><a href="#contact" onClick={handleLinkClick}>Contact</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
 
-      <div className={`hamburger ${isOpen ? "open" : ""}`} onClick={toggleMenu}>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+      {isOpen && <div className="overlay" onClick={toggleDrawer}></div>}
     </nav>
   );
 };

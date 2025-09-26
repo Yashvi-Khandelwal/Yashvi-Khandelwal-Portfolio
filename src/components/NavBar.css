@@ -9,7 +9,7 @@
   font-size: 1.2rem;
   font-weight: 400;
   border-bottom: 1px solid #1f242b;
-    z-index: 1000;   /* content ke upar rahe */
+  z-index: 1000;
 }
 
 nav ul li {
@@ -25,58 +25,81 @@ nav ul li {
 
 .items a {
   text-decoration: none;
-  color: #9BB0C0;      
+  color: #9BB0C0;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .items a:hover {
-   text-decoration: underline solid white;
-  color: #ff2e88;        
-  /* text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); */
+  text-decoration: underline solid white;
+  color: #ff2e88;
+  transform: scale(1.05);
 }
 
+.items a:focus {
+  outline: 2px solid #ff2e88;
+  outline-offset: 2px;
+}
 
-/* .hamburger {
-  display: none; */
-  /* default me hidden (desktop ke liye) */
-  /* flex-direction: column;
-  gap: 6px;
+.hamburger {
+  display: none;
   cursor: pointer;
+  z-index: 1001;
 }
 
-.hamburger span {
-  width: 25px;
-  height: 3px;
-  background: white;
-  border-radius: 5px;
-} */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
 
-/* Responsive */
 @media (max-width: 768px) {
+  .items {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
   .nav_items {
-    position: absolute;
-    top: 70px;
-    right: 0;
-    height: calc(100vh - 70px);
-    width: 220px;
-    background: #1e293b;
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in;
-    padding-top: 2rem;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+    padding-top: 3rem;
   }
 
   .nav_items.open {
-    transform: translateX(0);
+    right: 0;
   }
 
-  .items {
+  .nav_items ul {
     flex-direction: column;
-    align-items: center;
     gap: 2rem;
+    align-items: flex-start;
+    padding-left: 2rem;
   }
-/* 
-  .hamburger {
-    display: flex;
-  } */
+
+  .nav_items a {
+    font-size: 1.5rem;
+    color: #9BB0C0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .nav_items a:hover {
+    color: #ff2e88;
+  }
 }

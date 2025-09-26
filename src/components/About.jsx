@@ -21,13 +21,20 @@ export const About = () => {
         }
     ];
 
+    const technicalSkills = [
+        "HTML", "CSS",
+        "JavaScript",   "React JS","Java", "C", "Python (Basics)"
+    ];
+
+    const softSkills = ["Communication", "Team Work","Leadership"];
+
     return (
         <div className="about-container">
 
-               <div className="about-image">
-
+            <div className="about-image">
+                  <img src="/images/Yashvi-Khandelwal.jpg" alt="Yashvi Khandelwal" />
             </div>
-            
+
             <div className="about-content-container">
                 <h1 className='about-heading'>About Me</h1>
                 <div className="about-content">
@@ -57,9 +64,25 @@ export const About = () => {
                         ))
                     }
                 </div>
+
+                    <div className="about-skills">
+                    <h2>Technical Skills</h2>
+                    <div className="skills-list">
+                        {technicalSkills.map((skill, i) => (
+                            <span key={i} className="skill-card">{skill}</span>
+                        ))}
+                    </div>
+
+                    <h2>Soft Skills</h2>
+                    <div className="skills-list">
+        {softSkills.map((skill, i) => (
+            <span key={i} className="skill-card">{skill}</span>
+        ))}
+    </div>
+                </div>
+            </div>
             </div>
 
-         
-        </div>
+       
     )
 }

@@ -2,19 +2,25 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 80vh;
+    min-height: 100vh;
     width: 100%;
     padding: 4rem 2rem;
     margin: 0 auto;
 }
 
 .about-image {
-    border: 2px solid red;
     width: 25rem;
     height: 25rem;
     border-radius: 50%;
-    background-image: url("../images/Yashvi-Khandelwal.jpg");
-    background-size: cover;
+    overflow: hidden;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  display: block;
 }
 
 .about-content{
@@ -49,6 +55,39 @@
   font-size: 2rem;
 }
 
+.about-skills {
+  margin-top: 2rem;
+  text-align: left;
+  width: 100%;
+}
+
+.about-skills h2 {
+  color: #ff2e88;
+  margin-bottom: 0.8rem;
+  font-size: 1.5rem;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.skill-card {
+  background-color: #1f242b;
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.soft-skills {
+  list-style-type: disc;
+  margin-left: 1.2rem;
+  margin-bottom: 1rem;
+}
+
 @media (max-width: 1024px) {
   .about-container {
     padding: 3rem 1.5rem;
@@ -69,23 +108,24 @@
   }
 }
 
+
 @media (max-width: 767px) {
   .about-container {
     flex-direction: column;
-    height: auto;  /* content ke hisaab se adjust ho */
+    height: auto;
     padding: 2rem 1rem;
   }
 
   .about-image {
     width: 12rem;
     height: 12rem;
-    margin-bottom: 2rem; /* content se gap */
+    margin-bottom: 2rem;
   }
 
   .about-content-container {
     width: 100%;
-    align-items: center;  /* heading aur content center align */
-    text-align: center;
+    align-items: center;
+    text-align: left;
   }
 
   .about-heading {
@@ -99,6 +139,19 @@
 
   .about-social {
     justify-content: center;
+  }
+
+  .about-skills {
+    text-align: center;
+  }
+
+  .skills-list {
+    justify-content: center;
+  }
+
+  .soft-skills {
+    display: inline-block;
+    text-align: left;
   }
 }
 

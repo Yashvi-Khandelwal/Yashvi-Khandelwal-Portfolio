@@ -1,19 +1,18 @@
 import { NavBar } from './components/NavBar'
 import { Home } from './components/Home'
-import { About } from './components/About'
-// import experiences from './data/experience'
 import { ContactForm } from './components/ContactForm'
-// import Timeline from "./components/Experience";
+import { Experience } from './components/Experience'
+import { About } from './components/About'
 
 function App() {
 
   return (
     <>
       <NavBar />
-      <section id="home"><Home /></section>
-      <section id="about"><About /></section>
-      {/* <section id="experience"><Timeline /></section> */}
-      <section id="contact"><ContactForm /></section>
+      <section id="home" aria-label="Home Section"><Home /></section>
+      <section id="about" aria-label="About Section"><About /></section>
+      <section id="experience" aria-label="Experience Section"><Experience /></section>
+      <section id="contact" aria-label="Contact Section"><ContactForm /></section>
     </>
   )
 }

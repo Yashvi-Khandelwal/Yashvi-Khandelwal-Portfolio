@@ -1,19 +1,20 @@
 .home-section {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2rem 5%;
+  padding: 2rem 1rem;
   gap: 2rem;
+  height: 100vh;
 }
 
 .hero-section {
   text-align: center;
-  max-width: 90%; 
+  max-width: 90%;
 }
 
 .fullName {
-  font-size: 2rem; 
+  font-size: 2rem;
   margin: 0;
 }
 
@@ -23,7 +24,7 @@
 
 .short-intro {
   font-size: 1rem;
-  max-width: 100%;
+  max-width: 60ch;
   margin: 1rem 0;
   line-height: 1.6;
 }
@@ -46,20 +47,26 @@
 }
 
 .image {
-  width: 80%;          
-  max-width: 40rem;     
-  aspect-ratio: 3/4;   
-  border-radius: 1.5rem;
-  background-image: url("../images/Yashvi-Khandelwal.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  width: 80%;
+  height: 75vh;
+  max-width: 40rem;
+  aspect-ratio: 3/4;
+  border-radius: 1.2rem;
   margin-top: 2rem;
+  overflow: hidden;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  display: block;
 }
 
 @media (min-width: 769px) {
   .home-section {
-    flex-direction: row; 
+    flex-direction: row;
     justify-content: space-around;
     align-items: center;
     height: 100vh;
@@ -80,9 +87,9 @@
   }
 
   .image {
-    width: 35vw;        
+    width: 35vw;
     max-width: 40rem;
-    aspect-ratio: 3/4;  
+    aspect-ratio: 3/4;
     margin-top: 0;
 
   }
@@ -92,8 +99,9 @@
   .fullName {
     font-size: 3rem;
   }
-   .image {
-    width: 30vw;       
+
+  .image {
+    width: 30vw;
     max-width: 40rem;
   }
 }
