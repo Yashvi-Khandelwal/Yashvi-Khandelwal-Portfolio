@@ -1,5 +1,9 @@
-import { useEffect, useState, useRef } from 'react'
+import { useState } from 'react'
 import './ContactForm.css'
+import emailjs from "emailjs-com";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export const ContactForm = () => {
     const [contactDetails, setContactDetails] = useState({
         name: "",
@@ -19,11 +23,12 @@ export const ContactForm = () => {
         message: false
     });
 
+    const [isSending, setIsSending] = useState(false);
+
 
     const validate = () => {
         const newErrors = {};
 
-        // Name validation
         if (!contactDetails.name.trim()) {
             newErrors.name = "Name is required";
         } else if (contactDetails.name.trim().length < 2) {
@@ -32,14 +37,12 @@ export const ContactForm = () => {
             newErrors.name = "Name can only contain letters";
         }
 
-        // Email validation
         if (!contactDetails.email.trim()) {
             newErrors.email = "Email is required";
         } else if (!/^\S+@\S+\.\S+$/.test(contactDetails.email)) {
             newErrors.email = "Email is invalid";
         }
 
-        // Message validation
         if (!contactDetails.message.trim()) {
             newErrors.message = "Message is required";
         } else if (contactDetails.message.trim().length < 10) {
@@ -47,8 +50,6 @@ export const ContactForm = () => {
         }
 
         setErrors(newErrors);
-
-        // Return true if no errors
         return Object.keys(newErrors).length === 0;
     };
 
@@ -58,34 +59,58 @@ export const ContactForm = () => {
         setContactDetails((prev) => ({ ...prev, [name]: value }));
     };
 
+
     const handleSubmit = (e) => {
+        e.preventDefault();
 
         setTouched({ name: true, email: true, message: true });
-        if (!validate()) {
-            e.preventDefault(); // only block if invalid
+
+        const isValid = validate();
+        if (!isValid) {
+            toast.warn("Please fill the form correctly.");
+            return;
         }
-        if (validate()) {
-            console.log("Form Data:", contactDetails);
-            setContactDetails({ name: "", email: "", message: "" });
-            setErrors({});
-        } else {
-            console.log("Validation failed");
-        }
-        console.log(contactDetails);
+
+        setIsSending(true);
+
+        emailjs
+            .send(
+                "service_m730d7l",
+                "template_6spofug",
+                {
+                    from_name: contactDetails.name,
+                    from_email: contactDetails.email,
+                    message: contactDetails.message,
+                },
+                "P5G3dELTu5hjBYSBL"
+            )
+            .then(
+                (result) => {
+                    console.log("Email sent:", result.text);
+                    toast.success("Thank you! Your message has been sent.");
+                    setContactDetails({ name: "", email: "", message: "" });
+                    setErrors({});
+                    setIsSending(false);
+                },
+                (error) => {
+                    console.error("Email error:", error.text);
+                    toast.error("Oops! Something went wrong. Try again.");
+                    setIsSending(false);
+                }
+            );
     };
+
+
 
     return (
         <section className="contact-section">
             <h2 className="section-title">Get In Touch</h2>
             <div className="contact-grid">
-
-                {/* Left: Form Card */}
                 <div className="card contact-form-card">
                     <h3>📩 Send me a message</h3>
                     <form onSubmit={handleSubmit}
-                        action="mailto:khandelwalyashvi427@gmail.com"
-                        method="POST"
-                        encType="text/plain">
+                        noValidate
+                    >
                         <input
                             type="text"
                             name="name"
@@ -119,7 +144,8 @@ export const ContactForm = () => {
                             required
                         />
                         {touched.message && errors.message && <span className="error">{errors.message}</span>}
-                        <button type="submit">Send Message</button>
+                        <button type="submit" disabled={isSending}>
+                            {isSending ? "Sending..." : "Send Message"}</button>
                     </form>
                 </div>
 
@@ -142,6 +168,8 @@ export const ContactForm = () => {
                 </div>
 
             </div>
+            <ToastContainer position="top-right" autoClose={3000} />
+
         </section>
     );
 };

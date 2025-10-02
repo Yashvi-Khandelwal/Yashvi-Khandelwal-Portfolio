@@ -20,6 +20,7 @@ export const Home = () => {
                         href="/Yashvi_Khandelwal_Resume.pdf"
                         download="Yashvi_Khandelwal_Resume.pdf"
                         aria-label="Download resume"
+                        target='_blank'
                     >
                         <button type="button">Resume</button>
                     </a>

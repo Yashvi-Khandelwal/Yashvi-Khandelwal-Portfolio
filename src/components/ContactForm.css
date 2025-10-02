@@ -8,7 +8,7 @@
     font-size: 2.5rem;
     font-weight: 700;
     color: #ff2e88;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
 }
 
 .contact-grid {
@@ -23,14 +23,12 @@
     border: 1px solid #30363d;
     border-radius: 0.75rem;
     padding: 1.5rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .card>p {
-    color: #555;
+    color: #808080;
 }
 
-/* Right column stacks */
 .right-column {
     display: flex;
     flex-direction: column;
@@ -45,7 +43,6 @@
 .contact-form-card input,
 .contact-form-card textarea {
     border: 1px solid #30363d;
-    color: #fff;
     padding: 0.9rem 1rem;
     margin: 0.8rem 0;
     border-radius: 0.5rem;
@@ -56,7 +53,6 @@
 .contact-form-card input:focus,
 .contact-form-card textarea:focus {
     outline: none;
-    border-color: #30363d;
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
 }
 
@@ -74,9 +70,15 @@ button {
 }
 
 button:hover {
-    transform: translateY(-2px);
+    transform: scale(1.02);
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
 }
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 
 .error {
     color: #ff4d6d;
@@ -85,10 +87,10 @@ button:hover {
     display: block;
 }
 
-/* Responsive */
 @media (max-width: 900px) {
     .contact-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 }
 
